@@ -29,22 +29,28 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentTime = 0;
         const ease = 0.08; // Quanto menor o valor, mais "longa/suave" a transição
         
-        window.addEventListener('scroll', () => {
-            const rect = scrollContainer.getBoundingClientRect();
-            const scrollProgress = -rect.top;
-            const scrollMax = rect.height - window.innerHeight;
-            
-            if (scrollProgress >= 0 && scrollProgress <= scrollMax) {
-                let progressRatio = scrollProgress / scrollMax;
-                if (video.duration) {
-                    targetTime = video.duration * progressRatio;
+        // Em dispositivos móveis, o vídeo simplesmente toca normalmente
+        if (window.innerWidth <= 768) {
+            video.loop = true;
+            video.play().catch(e => console.log('Autoplay prevent:', e));
+        } else {
+            window.addEventListener('scroll', () => {
+                const rect = scrollContainer.getBoundingClientRect();
+                const scrollProgress = -rect.top;
+                const scrollMax = Math.max(1, rect.height - window.innerHeight); // Evita divisão por zero
+                
+                if (scrollProgress >= 0 && scrollProgress <= scrollMax) {
+                    let progressRatio = scrollProgress / scrollMax;
+                    if (video.duration) {
+                        targetTime = video.duration * progressRatio;
+                    }
+                } else if (scrollProgress < 0) {
+                    targetTime = 0;
+                } else if (scrollProgress > scrollMax && video.duration) {
+                    targetTime = video.duration;
                 }
-            } else if (scrollProgress < 0) {
-                targetTime = 0;
-            } else if (scrollProgress > scrollMax && video.duration) {
-                targetTime = video.duration;
-            }
-        });
+            });
+
 
         function renderLoop() {
             if (video.duration) {
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         renderLoop();
+        } // fecha o else
     }
 
     // Smooth Scroll para a Nav
