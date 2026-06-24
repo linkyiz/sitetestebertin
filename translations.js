@@ -8,14 +8,14 @@ const translations = {
         nav_contato: "Fale Conosco",
         
         hero_title: "O padrão global<br>em <span class='fw-black text-green'>pedras de fel.</span>",
-        hero_desc: "Liderando o mercado internacional na compra, venda e exportação de cálculos biliares bovinos. Qualidade, rastreabilidade e excelência garantida para indústrias ao redor do mundo.",
+        hero_desc: "Atuando no mercado internacional na compra, venda e exportação de cálculos biliares bovinos. Qualidade, rastreabilidade e excelência garantida para indústrias ao redor do mundo.",
         hero_btn_servicos: "Conheça nossos serviços",
         hero_btn_cotacao: "Solicitar Cotação →",
 
-        hist_title: "Fundada no interior<br>de São Paulo",
-        hist_subtitle: "Uma trajetória de excelência desde 2015.",
+        hist_title: "Fundada no interior<br>de Minas Gerais",
+        hist_subtitle: "Uma trajetória de excelência desde 2024.",
         hist_p1: "Nascemos no coração agropecuário do Brasil com uma visão clara: conectar as indústrias farmacêuticas globais à mais alta pureza de pedras de fel bovino.",
-        hist_p2: "Ao longo dos anos, construímos uma rede sólida de fornecedores, abatedouros e frigoríficos, garantindo processos rigorosos desde a coleta até a exportação. O que começou no interior paulista hoje é referência nos mercados mais exigentes do mundo.",
+        hist_p2: "Nossos proprietários e colaboradores atuam há mais de 30 anos no segmento e ao longo dos anos, construímos uma rede sólida de fornecedores, abatedouros e frigoríficos, garantindo processos rigorosos desde a coleta até a exportação. O que começou no interior de Minas Gerais hoje é referência nos mercados mais exigentes do mundo.",
 
         serv_badge: "Nossa Atuação",
         serv_title: "Soluções Completas",
@@ -54,7 +54,6 @@ const translations = {
 
         p_pre_t: "Pretas",
         p_pre_d: "Possui coloração escura devido à maior concentração de pigmentos biliares. É uma categoria reconhecida comercialmente, embora geralmente tenha menor valorização que as amarelas.",
-        p_pre_u1: "Processamento industrial especializado",
         p_pre_u2: "Comercialização em mercados específicos",
         p_pre_u3: "Produção de derivados naturais",
 
@@ -65,13 +64,14 @@ const translations = {
         qual_desc: "No mercado internacional de cálculos biliares, a confiança é o ativo mais valioso. Nós garantimos a integridade de cada lote através de processos certificados.",
         qual_i1: "<strong>Certificados de Origem:</strong> Rastreabilidade total desde o frigorífico.",
         qual_i2: "<strong>Licenças de Exportação:</strong> Atuação regulamentada nos mercados de destino.",
-        qual_i3: "<strong>Análises Químicas:</strong> Laudos de pureza que comprovam a qualidade dos cálculos biliares.",
+        qual_i3: "<strong>Análises Químicas:</strong> Laudos de pureza que comprovam a qualidade dos cálculos biliares, com descarte rigoroso em caso de contaminação.",
         qual_i4: "<strong>Armazenamento Ideal:</strong> Controle de temperatura e umidade para preservação das pedras.",
 
         glob_title: "Presença Global",
         glob_sub: "Do Brasil para as principais potências industriais e farmacêuticas.",
-        glob_text: "comercializadas no Brasil.",
-        glob_hint: "Selecione um país no mapa para visualizar os dados de exportação.",
+        glob_stat1: "Capacidade de produção mensal",
+        glob_stat2_pre: "Somos responsáveis pela compra de",
+        glob_stat2_post: "da produção da América do Sul",
 
         cont_badge: "Atendimento",
         cont_title: "Vamos Negociar?",
@@ -91,7 +91,7 @@ const translations = {
         cont_dir_t: "Fale com Nossa Equipe",
         cont_dir_d: "Prefere um atendimento mais rápido? Chame-nos diretamente em nossos canais oficiais para uma resposta imediata.",
 
-        foot_brand: "Especialistas em exportação de<br>pedras de fel bovino desde 2015.",
+        foot_brand: "Especialistas em exportação de<br>pedras de fel bovino desde 2024.",
         foot_emp: "Empresa",
         foot_cont: "Contato",
         foot_copy: "&copy; 2026 Bertin Gallstone Trading & Export. Todos os direitos reservados."
@@ -109,10 +109,10 @@ const translations = {
         hero_btn_servicos: "Discover our services",
         hero_btn_cotacao: "Request a Quote →",
 
-        hist_title: "Founded in the heart<br>of São Paulo",
-        hist_subtitle: "A trajectory of excellence since 2015.",
+        hist_title: "Founded in the heart<br>of Minas Gerais",
+        hist_subtitle: "A trajectory of excellence since 2024.",
         hist_p1: "We were born in the agricultural heart of Brazil with a clear vision: to connect global pharmaceutical industries to the highest purity of bovine gallstones.",
-        hist_p2: "Over the years, we have built a solid network of suppliers, slaughterhouses, and meatpackers, ensuring rigorous processes from collection to export. What started in the countryside of São Paulo is today a reference in the world's most demanding markets.",
+        hist_p2: "Our owners and employees have been working in the segment for over 30 years, and over the years, we have built a solid network of suppliers, slaughterhouses, and meatpackers, ensuring rigorous processes from collection to export. What started in the countryside of Minas Gerais is today a reference in the world's most demanding markets.",
 
         serv_badge: "Our Expertise",
         serv_title: "Complete Solutions",
@@ -151,7 +151,6 @@ const translations = {
 
         p_pre_t: "Black",
         p_pre_d: "Has a dark color due to a higher concentration of bile pigments. It is a commercially recognized category, although generally less valued than the yellow ones.",
-        p_pre_u1: "Specialized industrial processing",
         p_pre_u2: "Commercialization in specific markets",
         p_pre_u3: "Production of natural derivatives",
 
@@ -162,13 +161,14 @@ const translations = {
         qual_desc: "In the international gallstone market, trust is the most valuable asset. We guarantee the integrity of each batch through certified processes.",
         qual_i1: "<strong>Certificates of Origin:</strong> Full traceability from the slaughterhouse.",
         qual_i2: "<strong>Export Licenses:</strong> Regulated operations in destination markets.",
-        qual_i3: "<strong>Chemical Analysis:</strong> Purity reports proving the quality of the gallstones.",
+        qual_i3: "<strong>Chemical Analysis:</strong> Purity reports proving the quality of the gallstones, with rigorous disposal in case of contamination.",
         qual_i4: "<strong>Ideal Storage:</strong> Temperature and humidity control to preserve the stones.",
 
         glob_title: "Global Presence",
         glob_sub: "From Brazil to the main industrial and pharmaceutical powers.",
-        glob_text: "traded in Brazil.",
-        glob_hint: "Select a country on the map to view export data.",
+        glob_stat1: "Monthly production capacity",
+        glob_stat2_pre: "Responsible for purchasing",
+        glob_stat2_post: "of South American production",
 
         cont_badge: "Customer Service",
         cont_title: "Let's Negotiate?",
@@ -188,7 +188,7 @@ const translations = {
         cont_dir_t: "Talk to Our Team",
         cont_dir_d: "Prefer a faster response? Contact us directly through our official channels for an immediate reply.",
 
-        foot_brand: "Specialists in the export of<br>bovine gallstones since 2015.",
+        foot_brand: "Specialists in the export of<br>bovine gallstones since 2024.",
         foot_emp: "Company",
         foot_cont: "Contact",
         foot_copy: "&copy; 2026 Bertin Gallstone Trading & Export. All rights reserved."

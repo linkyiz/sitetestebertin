@@ -586,34 +586,59 @@ p {
     transform-origin: 10% center;
 }
 
+.map-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translate(-4%, 8%);
+}
+
 .world-map-img {
     width: 100%;
     height: auto;
     display: block;
     filter: brightness(0) invert(1) opacity(0.9);
-    transform: translate(-4%, 8%);
 }
 
-.map-pin {
+.map-routes-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.route-line {
+    fill: none;
+    stroke: url(#route-gradient);
+    stroke-width: 2.5;
+    stroke-dasharray: 6 6;
+    animation: dash-flow 20s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes dash-flow {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.map-pin-static {
     position: absolute;
     width: 14px;
     height: 14px;
     background: #0f9b39;
     border-radius: 50%;
-    border: none;
-    cursor: pointer;
     transform: translate(-50%, -50%);
-    transition: all 0.3s ease;
     box-shadow: 0 0 0 rgba(15, 155, 57, 0.4);
     animation: pulse-green 2s infinite;
     z-index: 2;
-}
-
-.map-pin:hover, .map-pin.active {
-    background: #fff;
-    transform: translate(-50%, -50%) scale(1.25);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
-    animation: none;
+    pointer-events: none;
 }
 
 @keyframes pulse-green {
@@ -627,6 +652,17 @@ p {
     flex-direction: column;
     justify-content: center;
     padding-left: 5rem;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stat-block {
+    display: flex;
+    flex-direction: column;
 }
 
 .counter-display {

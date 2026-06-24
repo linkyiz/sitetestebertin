@@ -93,27 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    // Mapa Global Interativo
-    const mapPins = document.querySelectorAll('.map-pin');
-    const counterEl = document.getElementById('export-counter');
-    const exportTextEl = document.getElementById('export-text');
+    // Global Stats Animation
+    const statsPanel = document.querySelector('.global-stats-panel');
+    const counterKg = document.getElementById('export-counter-kg');
+    const counterPercent = document.getElementById('export-counter-percent');
+    let statsAnimated = false;
 
-    const countryData = {
-        'Brasil': { text: 'comercializadas no Brasil.', target: 200 },
-        'China': { text: 'exportadas para a China.', target: 200 },
-        'Japão': { text: 'exportadas para o Japão.', target: 200 },
-        'USA': { text: 'exportadas para os EUA.', target: 200 },
-        'Coreia do Sul': { text: 'exportadas para a Coreia do Sul.', target: 200 },
-        'Espanha': { text: 'exportadas para a Espanha.', target: 200 },
-        'Argentina': { text: 'exportadas para a Argentina.', target: 200 },
-        'Canadá': { text: 'exportadas para o Canadá.', target: 200 }
-    };
-
-    let animationId = null;
-
-    function animateCounter(targetValue, duration = 1500) {
-        if (animationId) cancelAnimationFrame(animationId);
-        
+    function animateCounter(el, targetValue, duration = 1500) {
         const startValue = 0;
         const startTime = performance.now();
 
@@ -125,43 +111,28 @@ document.addEventListener('DOMContentLoaded', () => {
             const easeProgress = 1 - Math.pow(1 - progress, 3);
             const currentValue = Math.floor(startValue + (targetValue - startValue) * easeProgress);
             
-            counterEl.textContent = currentValue;
+            if (el) el.textContent = currentValue;
 
             if (progress < 1) {
-                animationId = requestAnimationFrame(update);
+                requestAnimationFrame(update);
             } else {
-                counterEl.textContent = targetValue;
+                if (el) el.textContent = targetValue;
             }
         }
 
-        animationId = requestAnimationFrame(update);
+        requestAnimationFrame(update);
     }
 
-    mapPins.forEach(pin => {
-        pin.addEventListener('click', function() {
-            // Remove active
-            mapPins.forEach(p => p.classList.remove('active'));
-            // Set active
-            this.classList.add('active');
-
-            const country = this.getAttribute('data-country');
-            const data = countryData[country];
-
-            if (data) {
-                exportTextEl.textContent = data.text;
-                animateCounter(data.target);
+    if (statsPanel && counterKg && counterPercent) {
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !statsAnimated) {
+                statsAnimated = true;
+                setTimeout(() => animateCounter(counterKg, 20), 200);
+                setTimeout(() => animateCounter(counterPercent, 12), 400);
             }
-        });
-    });
+        }, { threshold: 0.5 });
 
-    // Iniciar contagem para o primeiro carregamento
-    if (mapPins.length > 0) {
-        const activePin = document.querySelector('.map-pin.active');
-        if (activePin) {
-            const country = activePin.getAttribute('data-country');
-            const data = countryData[country];
-            if (data) animateCounter(data.target);
-        }
+        statsObserver.observe(statsPanel);
     }
 
     // Gallery Card Interaction
@@ -232,36 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Handle map data text translation when language changes
-            if (lang === 'en') {
-                countryData['Brasil'].text = 'traded in Brazil.';
-                countryData['China'].text = 'exported to China.';
-                countryData['Japão'].text = 'exported to Japan.';
-                countryData['USA'].text = 'exported to USA.';
-                countryData['Coreia do Sul'].text = 'exported to South Korea.';
-                countryData['Espanha'].text = 'exported to Spain.';
-                countryData['Argentina'].text = 'exported to Argentina.';
-                countryData['Canadá'].text = 'exported to Canada.';
-            } else {
-                countryData['Brasil'].text = 'comercializadas no Brasil.';
-                countryData['China'].text = 'exportadas para a China.';
-                countryData['Japão'].text = 'exportadas para o Japão.';
-                countryData['USA'].text = 'exportadas para os EUA.';
-                countryData['Coreia do Sul'].text = 'exportadas para a Coreia do Sul.';
-                countryData['Espanha'].text = 'exportadas para a Espanha.';
-                countryData['Argentina'].text = 'exportadas para a Argentina.';
-                countryData['Canadá'].text = 'exportadas para o Canadá.';
-            }
-
-            // Update currently selected map pin text
-            const activePin = document.querySelector('.map-pin.active');
-            if (activePin) {
-                const country = activePin.getAttribute('data-country');
-                if (countryData[country]) {
-                    const exportTextEl = document.getElementById('export-text');
-                    if (exportTextEl) exportTextEl.textContent = countryData[country].text;
-                }
-            }
+            // Map translation logic removed
         }
     }
 });
